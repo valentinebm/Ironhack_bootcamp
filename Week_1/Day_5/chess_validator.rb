@@ -57,8 +57,12 @@ class Position
 
 end
 
+class Piece
+  def initialize
+  end
+end
 
-class Rook
+class Rook < Piece
 
   def initialize
   end
@@ -192,7 +196,11 @@ class Queen
 
     elsif @origin.vertical == @destination.vertical
       return "vertical"
+
+    elsif diagonal(@origin, @destination) == true
+      return "diagonal"
     end
+
   end
 
   def all_empty(array)
@@ -211,6 +219,8 @@ class Queen
       answer = true
     end
     answer
+
+
   end
 
 def all_cell_betweens(origin, destination)
@@ -229,9 +239,23 @@ def all_cell_betweens(origin, destination)
         cell = [i, @origin.vertical]
         @array.push(cell)
       end
+
+  elsif check_which_move(@origin, @destination).eql? "diagonal"
+    horizontals = []
+    verticals = []
+
+    for i in @origin.horizontal+1...@destination.horizontal
+      verticals.push(i)
+    end
+
+    for i in @origin.vertical+1...@destination.vertical
+      horizontals.push(i)
+    end
+    @array = verticals.zip(horizontals)
     end
     @array
-end
+  end
+
 
   def check_move_validity(board, origin, destination)
     @board = board
@@ -241,17 +265,16 @@ end
     if moves(@origin, @destination) == true
       puts "Move is possible"
 
-    if all_empty(all_cell_betweens(@origin, @destination)) == true
-      puts "Move is VALID!!!!"
+      if all_empty(all_cell_betweens(@origin, @destination)) == true
+        puts "Move is VALID!!!!"
 
-    else
-      puts "Move isn't valid - something in the way"
-    end
+      else
+        puts "Move isn't valid - something in the way"
+      end
 
     else
       puts "Pawn not able to perform that move"
     end
-    #verify whether cells until destination are free
   end
 
 end
@@ -271,8 +294,8 @@ my_board = Board.new(grid)
 
 first_position = Position.new(0,0)
 last_position = Position.new(0,7)
-d8 = Position.new(0,4)
-a5 = Position.new(3,0)
+d8 = Position.new(0,3)
+a5 = Position.new(3,6)
 # other_position = Position.new(0,1)
 
 # my_board.show_occupation(first_position)
