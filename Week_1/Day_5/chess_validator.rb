@@ -6,22 +6,18 @@ class Board
     @grid = grid
   end
 
-  def show_board
-    puts @grid
-  end
-
-  def show_occupation(position)
-    @horizontal = position.horizontal
-    @vertical = position.vertical
-    @position = @grid[@horizontal][@vertical]
-    # binding.pry
-      if @position == nil
-        puts "There's nothing on this position."
-      else
-        puts "There's something here:"
-        puts occupyer
-      end
-  end
+  # def show_occupation(position)
+  #   @horizontal = position.horizontal
+  #   @vertical = position.vertical
+  #   @position = @grid[@horizontal][@vertical]
+  #   # binding.pry
+  #     if @position == nil
+  #       puts "There's nothing on this position."
+  #     else
+  #       puts "There's something here:"
+  #       puts occupyer
+  #     end
+  # end
 
   def occupyer
     @grid[@horizontal][@vertical]
@@ -35,10 +31,6 @@ class Position
     @y = y
   end
 
-  def show_position
-    puts "[#{@x}, #{@y}]"
-  end
-
   def horizontal
     @x
   end
@@ -47,39 +39,100 @@ class Position
     @y
   end
 
+  def show(board)
+    @board = board
+    @position = @board[@x][@y]
+
+      if @position == nil
+        return false
+      else
+        return true
+      end
+  end
+
+  def what(board)
+    @board = board
+    @board[@x][@y]
+  end
+
 end
 
-class Piece
-  def initialize(location, desired_location)
-    @position = location
-    @desired_location = desired_location
+
+class Rook
+
+  def initialize
   end
+
+  def moves(origin, destination)
+    @origin = origin
+    @destination = destination
+
+    if @origin.horizontal == @destination.horizontal || @origin.vertical == @destination.vertical
+    return true
+    end
+  end
+
+  # def initiation
+  #   @board = board
+  #   @origin = origin
+  #   @destination = destination
+  # #next lines verify whether there is actually something to be moved
+  #   if @origin.show(@board) == false
+  #     puts "Move can't be initiated"
+  #   else
+  #     puts @origin.what(@board)
+  #   end
+  # end
+
+  def check_which_move(origin, destination)
+    @origin = origin
+    @destination = destination
+
+    if @origin.horizontal == @destination.horizontal
+      return "horizontal"
+
+    elsif @origin.vertical == @destination.vertical
+      return "vertical"
+    end
+
+  end
+
+def all_cell_betweens(origin, destination)
+  @origin = origin
+  @destination = destination
+  @array = []
+
+  if check_which_move(@origin,@destination).eql? "horizontal"
+    for i in @origin.vertical+1...@destination.vertical
+      @array.push(@origin.horizontal, i)
+    end
+
+  elsif check_which_move(@origin,@destination).eql? "vertical"
+      for i in @origin.horizontal+1...@destination.horizontal
+        @array.push(i, @origin.vertical)
+      end
+    end
+    @array
+end
 
   def check_move_validity(board, origin, destination)
-    board = @grid
-    origin = @position
-    destination = @desired_location
+    @board = board
+    @origin = origin
+    @destination = destination
+
+    if moves(@origin, @destination) == true
+      puts "move is possible"
+
+      puts all_cell_betweens(@origin, @destination)
+      #now need to check if they are all empty or not
+
+    else
+      puts "Pawn not able to perform that move"
+    end
+    #verify whether cells until destination are free
   end
-end
-
-class Rook < Piece
-  def initialize(location, desired_location)
-    @position = location
-    @desired_location = desired_location
-  end
 
 end
-
-# a2 a3 LEGAL
-# a2 a4 LEGAL
-# a2 a4 ILLEGAL
-# a7 a6 LEGAL
-# a7 a5 LEGAL
-# a7 a4 ILLEGAL
-# b8 a6 LEGAL
-# b8 c6 LEGAL
-# b8 d7 ILLEGAL
-# ...
 
 grid =
 
@@ -95,12 +148,12 @@ grid =
 my_board = Board.new(grid)
 
 first_position = Position.new(0,0)
+last_position = Position.new(0,7)
 # other_position = Position.new(0,1)
 
-my_board.show_occupation(first_position)
+# my_board.show_occupation(first_position)
 # my_board.show_occupation(other_position)
 # starting_point.show_position
 
-# bR = Rook.new(starting_point, [0,9])
-
-# my_board.show_board
+bR = Rook.new
+bR.check_move_validity(grid, first_position, last_position)
