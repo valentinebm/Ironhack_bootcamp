@@ -6,19 +6,6 @@ class Board
     @grid = grid
   end
 
-  # def show_occupation(position)
-  #   @horizontal = position.horizontal
-  #   @vertical = position.vertical
-  #   @position = @grid[@horizontal][@vertical]
-  #   # binding.pry
-  #     if @position == nil
-  #       puts "There's nothing on this position."
-  #     else
-  #       puts "There's something here:"
-  #       puts occupyer
-  #     end
-  # end
-
   def occupyer
     @grid[@horizontal][@vertical]
   end
@@ -60,13 +47,29 @@ end
 class Piece
   def initialize
   end
+
+  def check_move_validity(board, origin, destination)
+    @board = board
+    @origin = origin
+    @destination = destination
+
+    if moves(@origin, @destination) == true
+      puts "Move is possible in that the pawn can theoretically perform that move"
+
+    if all_empty(all_cell_betweens(@origin, @destination)) == true
+      puts "Move is VALID!!!!"
+
+    else
+      puts "Move isn't valid - something in the way"
+    end
+
+    else
+      puts "Pawn not able to perform that move"
+    end
+  end
 end
 
 class Rook < Piece
-
-  def initialize
-  end
-
   def moves(origin, destination)
     @origin = origin
     @destination = destination
@@ -136,35 +139,11 @@ def all_cell_betweens(origin, destination)
       end
     end
     @array
-end
-
-  def check_move_validity(board, origin, destination)
-    @board = board
-    @origin = origin
-    @destination = destination
-
-    if moves(@origin, @destination) == true
-      puts "Move is possible"
-
-    if all_empty(all_cell_betweens(@origin, @destination)) == true
-      puts "Move is VALID!!!!"
-
-    else
-      puts "Move isn't valid - something in the way"
-    end
-
-    else
-      puts "Pawn not able to perform that move"
-    end
-    #verify whether cells until destination are free
   end
 
 end
 
-class Queen
-
-  def initialize
-  end
+class Queen < Piece
 
   def moves(origin, destination)
     @origin = origin
@@ -200,7 +179,6 @@ class Queen
     elsif diagonal(@origin, @destination) == true
       return "diagonal"
     end
-
   end
 
   def all_empty(array)
@@ -219,8 +197,6 @@ class Queen
       answer = true
     end
     answer
-
-
   end
 
 def all_cell_betweens(origin, destination)
@@ -255,28 +231,6 @@ def all_cell_betweens(origin, destination)
     end
     @array
   end
-
-
-  def check_move_validity(board, origin, destination)
-    @board = board
-    @origin = origin
-    @destination = destination
-
-    if moves(@origin, @destination) == true
-      puts "Move is possible"
-
-      if all_empty(all_cell_betweens(@origin, @destination)) == true
-        puts "Move is VALID!!!!"
-
-      else
-        puts "Move isn't valid - something in the way"
-      end
-
-    else
-      puts "Pawn not able to perform that move"
-    end
-  end
-
 end
 
 grid =
@@ -292,8 +246,8 @@ grid =
 
 my_board = Board.new(grid)
 
-first_position = Position.new(0,0)
-last_position = Position.new(0,7)
+a8 = Position.new(0,0)
+h8 = Position.new(0,7)
 d8 = Position.new(0,3)
 a5 = Position.new(3,6)
 # other_position = Position.new(0,1)
@@ -304,5 +258,6 @@ a5 = Position.new(3,6)
 
 bR = Rook.new
 bQ = Queen.new
-# bR.check_move_validity(grid, first_position, last_position)
+
+# bR.check_move_validity(grid, a8, h8)
 bQ.check_move_validity(grid, d8, a5)
