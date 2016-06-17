@@ -94,7 +94,24 @@ class Rook
     elsif @origin.vertical == @destination.vertical
       return "vertical"
     end
+  end
 
+  def all_empty(array)
+    @array = array
+    results = []
+
+    @array.each do |x,y|
+      position = Position.new(x,y)
+      result = position.show(@board)
+      results.push(result)
+      end
+
+    if results.include? true
+      answer = false
+    else
+      answer = true
+    end
+    answer
   end
 
 def all_cell_betweens(origin, destination)
@@ -104,12 +121,14 @@ def all_cell_betweens(origin, destination)
 
   if check_which_move(@origin,@destination).eql? "horizontal"
     for i in @origin.vertical+1...@destination.vertical
-      @array.push(@origin.horizontal, i)
+      cell = [@origin.horizontal, i]
+      @array.push(cell)
     end
 
   elsif check_which_move(@origin,@destination).eql? "vertical"
       for i in @origin.horizontal+1...@destination.horizontal
-        @array.push(i, @origin.vertical)
+        cell = [i, @origin.vertical]
+        @array.push(cell)
       end
     end
     @array
@@ -121,10 +140,14 @@ end
     @destination = destination
 
     if moves(@origin, @destination) == true
-      puts "move is possible"
+      puts "Move is possible"
 
-      puts all_cell_betweens(@origin, @destination)
-      #now need to check if they are all empty or not
+    if all_empty(all_cell_betweens(@origin, @destination)) == true
+      puts "Move is VALID!!!!"
+
+    else
+      puts "Move isn't valid - something in the way"
+    end
 
     else
       puts "Pawn not able to perform that move"
