@@ -11,30 +11,26 @@ get '/add'  do
   erb(:add)
 end
 
-post "/calculate_add" do
+post '/calculation' do
   first = params[:first_number].to_f
   second = params[:second_number].to_f
+  operation = params[:operation]
+
+  if operation == "addition"
   @result = first + second
   erb :result
-end
 
-post "/calculate_substract" do
-  first = params[:first_number].to_f
-  second = params[:second_number].to_f
+  elsif operation == "substraction"
   @result = first - second
   erb :result
-end
 
-post "/calculate_multiply" do
-  first = params[:first_number].to_f
-  second = params[:second_number].to_f
+  elsif operation == "multiplication"
   @result = first * second
   erb :result
-end
 
-post "/calculate_divide" do
-  first = params[:first_number].to_f
-  second = params[:second_number].to_f
+  elsif operation == "division"
   @result = first / second
   erb :result
+
+  end
 end
