@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-#comment
 get '/'  do
   erb(:homepage)
 end
