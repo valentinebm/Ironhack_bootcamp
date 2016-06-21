@@ -2,20 +2,28 @@
 <html>
 <head>
   <title>Online Calculator</title>
+  <link rel="stylesheet" type="text/css" href="homepage.css">
 </head>
 <body>
 
   <h1>Calculate</h1>
 
-<form action="/calculation" method="POST">
+  <img src="unicorn.jpg" alt="my unicorn" />
 
+  <form action="/calculation" method="POST">
+
+
+  <div id="fields">
   <input type="number" name="first_number" placeholder="1st number"> +
   <input type="number" name="second_number" placeholder="2nd number">
+  </div>
 
-   <button type="submit" name="operation" value="addition">ADD</button>
-   <button type="submit" name="operation" value="substraction">SUBSTRACT</button>
-   <button type="submit" name="operation" value="multiplication">MULTIPLY</button>
-   <button type="submit" name="operation" value="division">DIVIDE</button>
+  <div id="buttons">
+  <button type="submit" name="operation" value="addition">ADD</button>
+  <button type="submit" name="operation" value="substraction">SUBSTRACT</button>
+  <button type="submit" name="operation" value="multiplication">MULTIPLY</button>
+  <button type="submit" name="operation" value="division">DIVIDE</button>
+  </div>
 </form>
 
 
