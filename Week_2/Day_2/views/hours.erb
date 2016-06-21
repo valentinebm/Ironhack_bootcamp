@@ -1,0 +1,8 @@
+<head>
+   <link rel="stylesheet" type="text/css" href="/time.css">
+</head>
+
+
+<h1> This is the time it was <strong><%=@hours%></strong> hours ago:</h1>
+
+<h2><%=(Time.now - @hours.to_i*3600).strftime("%I:%M%p")%></h2>
