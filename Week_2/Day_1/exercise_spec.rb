@@ -3,7 +3,11 @@ require 'date'
 require './exercise_rb.rb'
 
 describe Task do
+  describe "#new"
+  let(:content) { 'this is the content'}
+
   subject { described_class.new("Content")}
+
 
   describe '#complete?' do
     it 'returns false by default' do
@@ -37,7 +41,9 @@ describe TodoList do
 
   describe '#add_task' do
     it 'adds a task to the to-do-list' do
-      expect(subject.add_task("task")).to include("task")
+      task = Task.new("'something'")
+      subject.add(task)
+      expect(subject.tasks).to include("task")
     end
   end
 

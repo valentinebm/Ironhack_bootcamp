@@ -14,7 +14,8 @@ class Car
     puts "Masseratti"
   end
 
-  def speed_control
+  def self.speed_control
+    puts "What speed are you going at?"
     speed = gets.chomp.to_i
     if speed > 100 && speed <=120
       puts "too fast man, calm down"
@@ -72,12 +73,12 @@ jaguar = Car.new ("brooom")
 mini.make_sound
 jaguar.make_sound
 
-jaguar.speed_control
-jaguar.add_cities
+Car.speed_control
+# jaguar.add_cities
 # jaguar.cities("Barcelona")
 # jaguar.cities("Madrid")
 
 racing_car = RacingCar.new ("bbbbb")
-racing_car.make_sound
+# racing_car.make_sound
 #jaguar.print_cities
 jaguar.visited

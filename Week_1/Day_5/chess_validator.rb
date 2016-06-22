@@ -9,7 +9,6 @@ class Board
   def occupyer
     @grid[@horizontal][@vertical]
   end
-
 end
 
 class Position
@@ -41,7 +40,6 @@ class Position
     @board = board
     @board[@x][@y]
   end
-
 end
 
 class Piece
@@ -67,41 +65,6 @@ class Piece
       puts "Pawn not able to perform that move"
     end
   end
-end
-
-class Rook < Piece
-  def moves(origin, destination)
-    @origin = origin
-    @destination = destination
-
-    if @origin.horizontal == @destination.horizontal || @origin.vertical == @destination.vertical
-    return true
-    end
-  end
-
-  # def initiation
-  #   @board = board
-  #   @origin = origin
-  #   @destination = destination
-  # #next lines verify whether there is actually something to be moved
-  #   if @origin.show(@board) == false
-  #     puts "Move can't be initiated"
-  #   else
-  #     puts @origin.what(@board)
-  #   end
-  # end
-
-  def check_which_move(origin, destination)
-    @origin = origin
-    @destination = destination
-
-    if @origin.horizontal == @destination.horizontal
-      return "horizontal"
-
-    elsif @origin.vertical == @destination.vertical
-      return "vertical"
-    end
-  end
 
   def all_empty(array)
     @array = array
@@ -119,6 +82,41 @@ class Rook < Piece
       answer = true
     end
     answer
+  end
+end
+
+class Rook < Piece
+  def moves(origin, destination)
+    @origin = origin
+    @destination = destination
+
+    if @origin.horizontal == @destination.horizontal || @origin.vertical == @destination.vertical
+    return true
+    end
+  end
+
+  #checks whether there is actually something to be moved and if yes, what
+  # def initiation
+  #   @board = board
+  #   @origin = origin
+  #   @destination = destination
+  #   if @origin.show(@board) == false
+  #     puts "Move can't be initiated"
+  #   else
+  #     puts @origin.what(@board)
+  #   end
+  # end
+
+  def check_which_move(origin, destination)
+    @origin = origin
+    @destination = destination
+
+    if @origin.horizontal == @destination.horizontal
+      return "horizontal"
+
+    elsif @origin.vertical == @destination.vertical
+      return "vertical"
+    end
   end
 
 def all_cell_betweens(origin, destination)
@@ -181,24 +179,6 @@ class Queen < Piece
     end
   end
 
-  def all_empty(array)
-    @array = array
-    results = []
-
-    @array.each do |x,y|
-      position = Position.new(x,y)
-      result = position.show(@board)
-      results.push(result)
-      end
-
-    if results.include? true
-      answer = false
-    else
-      answer = true
-    end
-    answer
-  end
-
 def all_cell_betweens(origin, destination)
   @origin = origin
   @destination = destination
@@ -235,7 +215,7 @@ end
 
 grid =
 
-  [ :bR, nil, nil, nil, nil, nil, nil, nil ],
+  [ :bR, nil, nil, :bQ, nil, nil, nil, nil ],
   [ nil, nil, nil, nil, nil, nil, nil ,nil ],
   [ nil, nil, nil, nil, nil, nil, nil ,nil ],
   [ nil, nil, nil, nil, nil, nil, nil ,nil ],
