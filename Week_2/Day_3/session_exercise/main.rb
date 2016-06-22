@@ -1,19 +1,28 @@
 require 'sinatra'
 require 'sinatra/reloader'
-load 'lib/models.rb'
+require './lib/models'
 require 'pry'
 
+enable(:sessions)
 
 get '/'  do
   erb :homepage
 end
 
+get '/login' do
+  if session[:current_user] != nil
+    erb :profile
+  else
+  erb :homepage
+end
+end
+
 post '/login' do
   @username = params[:username]
   @password = params[:password]
-  @user = Login.new(@username, @password)
+  user = Login.new(@username, @password)
 
-  if @user.verify
+  if user.verify
     session[:current_user] = {
       username: @username,
       password: @password
@@ -26,7 +35,15 @@ post '/login' do
 end
 
 get '/profile' do
-  user = session[:current_user]
-
+  if session[:current_user] == nil
+    redirect to '/'
+  else
   erb :profile
   end
+
+end
+
+post '/logout' do
+  session[:current_user] = nil
+  redirect to('/login')
+end
