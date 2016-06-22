@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader'
+load 'lib/class.rb'
 
 get '/'  do
   erb(:homepage)
@@ -11,24 +12,26 @@ get '/add'  do
 end
 
 post '/calculation' do
-  first = params[:first_number].to_f
-  second = params[:second_number].to_f
+  @first = params[:first_number].to_f
+  @second = params[:second_number].to_f
   operation = params[:operation]
 
+  @system = Calculator.new(@first, @second)
+
   if operation == "addition"
-  @result = first + second
+  @result = @system.add
   erb :result
 
   elsif operation == "substraction"
-  @result = first - second
+  @result = @system.substract
   erb :result
 
   elsif operation == "multiplication"
-  @result = first * second
+  @result = @system.multiply
   erb :result
 
   elsif operation == "division"
-  @result = first / second
+  @result = @system.divide
   erb :result
 
   end
