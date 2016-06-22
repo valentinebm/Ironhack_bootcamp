@@ -8,20 +8,25 @@ get '/'  do
   erb :homepage
 end
 
-post '/home' do
+post '/login' do
   @username = params[:username]
   @password = params[:password]
-  @user = User.new(@username, @password)
+  @user = Login.new(@username, @password)
 
-  if @user.verify(@username, @password) == true
-    redirect to '/logged'
+  if @user.verify
+    session[:current_user] = {
+      username: @username,
+      password: @password
+    }
+    redirect to '/profile'
 
   else
     redirect to '/'
   end
 end
 
+get '/profile' do
+  user = session[:current_user]
 
-get '/logged' do
-  erb :logged
-end
+  erb :profile
+  end
