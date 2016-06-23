@@ -7,8 +7,8 @@ body {  background: #FF5F6D; /* fallback for old browsers */
         }
 
   #list { background-color: rgba(0, 0, 0, .5);
-    margin-left: 600px;
-    margin-right: 600px;
+    max-width: 500px;
+    margin: 0 auto;
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: left
