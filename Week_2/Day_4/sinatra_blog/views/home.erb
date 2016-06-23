@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
        <link rel="stylesheet" type="text/css" href="./home.css">
-    <title> My blog</title>
+    <title> Birthdays </title>
   </head>
   <body>
-    <h1> My articles </h1>
+    <h1> Birthdays </h1>
 
     <div id="list">
     <ul>
-      <% @posts.each do |post| %>
-        <li><%= post.title %></li>
+      <%for i in 0...@posts.length do%>
+        <a href="/post_details/<%=i%>"> <%= @posts[i].title %> </a>
+        <br>
       <% end %>
     </ul>
     </div>
-    
+
   </body>
 </html>

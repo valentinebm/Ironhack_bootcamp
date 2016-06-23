@@ -5,4 +5,4 @@ class Post
     @date = date
     @text = text
   end
-end 
+end
