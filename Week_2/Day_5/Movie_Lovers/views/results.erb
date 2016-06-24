@@ -3,15 +3,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+     <link rel="stylesheet" type="text/css" href="../movie_results.css">
+      <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <title> movies </title>
   </head>
+
   <body>
+    <nav>
+      <section class="title">
+        <h1> movies </h1>
+      </section>
+    </nav>
 
-    <h1>Here are your results</h1>
+  <section class="intro">
+    <h3>Here are your results</h3>
+  </section>
 
+
+  <article class="movies" >
     <% @results.each do |item| %>
-      <li><%= item.title%></li>
+      <img class="poster" src="<%=item.poster%>">
     <% end %>
+  </article>
+
+  <div class="question">
+  <h3> What movie has the highest rating? </h3>
+  <h2> CLICK on it!</h2>
+  </div>
 
   </body>
 </html>

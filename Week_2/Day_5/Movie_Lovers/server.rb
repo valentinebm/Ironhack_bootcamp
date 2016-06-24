@@ -22,6 +22,6 @@ end
 
 
 get '/results' do
-  @results = results
+  @results = results[0..14]
   erb :results
 end
