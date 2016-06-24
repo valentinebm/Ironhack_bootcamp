@@ -23,7 +23,8 @@ end
 
 get '/post_details/:number' do
   @posts = my_blog.latest_posts
-  @number = params[:number]
+  number = params[:number]
+  @post = @posts[number.to_i]
    erb :post_details
 end
 
@@ -32,12 +33,12 @@ get '/new_post' do
 end
 
 post '/new_post' do
-  @author = params[:name]
-  @title = params[:title]
-  @date = Time.now
-  @text = params[:text]
-  @category = params[:category]
+  author = params[:name]
+  title = params[:title]
+  date = Time.now
+  text = params[:text]
+  category = params[:category]
 
-my_blog.add_post(Post.new(@author, @title, @date, @text, @category))
-redirect to '/'
+  my_blog.add_post(Post.new(author, title, date, text, category))
+  redirect to '/'
 end

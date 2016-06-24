@@ -32,24 +32,35 @@
       <div class="container2">
         <div class="container">
 
-        <div class= "column1">
-          <%for i in 0...@posts.length do%>
-            <a href="/post_details/<%=i%>"> <%= @posts[i].title %> </a>
-              <br> <br>
-                <% end %> </div>
-        <div class= "column2">   <%for i in 0...@posts.length do%>
-          <%= @posts[i].author %>
-              <br> <br>
-                <% end %> </div>
-        <div class= "column3">   <%for i in 0...@posts.length do%>
-             <%= @posts[i].date.to_date %>
-              <br> <br>
-                <% end %> </div>
-        <div class= "column4"> <%for i in 0...@posts.length do%>
-            <%= @posts[i].category %>
-              <br> <br>
-                <% end %> </div>
-      </div>
+          <div class= "column1">
+            <% for i in 0...@posts.length do%>
+              <a href="/post_details/<%=i%>"> <%= @posts[i].title %> </a>
+                <br> <br>
+            <% end %>
+          </div>
+
+          <div class= "column2">
+            <%@posts.each do |post|%>
+            <%= post.author %>
+                <br> <br>
+            <% end %>
+          </div>
+
+          <div class= "column3">
+            <%@posts.each do |post|%>
+               <%= post.date.to_date %>
+                <br> <br>
+            <% end %>
+          </div>
+
+          <div class= "column4">
+            <%@posts.each do |post|%>
+              <%= post.category %>
+                <br> <br>
+            <% end %>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>

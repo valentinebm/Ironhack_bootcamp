@@ -6,11 +6,11 @@
     <title> Post details </title>
   </head>
   <body>
-    <h1 class="top"> <%=@posts[@number.to_i].title%>  </h1>
-    <h2>by <%=@posts[@number.to_i].author%></h2>
+    <h1 class="top"> <%=@post.title%>  </h1>
+    <h2>by <%=@post.author%></h2>
 
-    <h3> <%=@posts[@number.to_i].text%> </h3>
-    <h4><%=@posts[@number.to_i].category%></h4>
+    <h3> <%=@post.text%> </h3>
+    <h4><%=@post.category%></h4>
 
 <a class="button" href="/"> Back to all articles </a>
 
