@@ -3,19 +3,61 @@
   <head>
     <meta charset="utf-8">
        <link rel="stylesheet" type="text/css" href="./home.css">
-    <title> Birthdays </title>
+    <title> Blog </title>
   </head>
-  <body>
-    <h1> Birthdays </h1>
 
-    <div id="list">
-    <ul>
-      <%for i in 0...@posts.length do%>
-        <a href="/post_details/<%=i%>"> <%= @posts[i].title %> </a>
-        <br>
-      <% end %>
-    </ul>
+  <body>
+
+    <div class="top">
+      <h1> Blog </h1>
     </div>
 
+
+  <div class="container4">
+  	<div class="container3">
+      <div class="container2">
+      	<div class="container">
+
+        <div class= "column1"> <h2> Title </h2> </div>
+        <div class= "column2"> <h2> Author </h2> </div>
+        <div class= "column3"> <h2> Date </h2> </div>
+        <div class= "column4"> <h2> Category </h2> </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container4">
+    <div class="container3">
+      <div class="container2">
+        <div class="container">
+
+        <div class= "column1">
+          <%for i in 0...@posts.length do%>
+            <a href="/post_details/<%=i%>"> <%= @posts[i].title %> </a>
+              <br> <br>
+                <% end %> </div>
+        <div class= "column2">   <%for i in 0...@posts.length do%>
+          <%= @posts[i].author %>
+              <br> <br>
+                <% end %> </div>
+        <div class= "column3">   <%for i in 0...@posts.length do%>
+             <%= @posts[i].date.to_date %>
+              <br> <br>
+                <% end %> </div>
+        <div class= "column4"> <%for i in 0...@posts.length do%>
+            <%= @posts[i].category %>
+              <br> <br>
+                <% end %> </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <a class="button" href="/new_post"> Write a new article </a>
+
   </body>
+
 </html>
