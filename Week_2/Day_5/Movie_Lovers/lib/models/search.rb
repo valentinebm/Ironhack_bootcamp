@@ -12,6 +12,7 @@ class SearchMovies
 
 end
 
-# search = SearchMovies.new
+search = SearchMovies.new
 # search.search("titanic")
 # puts search.titles.class
+# 

@@ -4,7 +4,7 @@ require 'rspec'
 require 'pry'
 require 'imdb'
 require './lib/models/search'
-require './lib/models/movies'
+
 
 
 results = []

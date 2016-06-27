@@ -1,0 +1,112 @@
+body {
+  background-image: url(https://trello-backgrounds.s3.amazonaws.com/53baf533e697a982248cd73f/4200x4200/48dbf0b5a546541e847e267a5dcd2201/shutterstock_134707556.jpg);
+  background-size: cover;
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+.navigation {
+  background-color: rgba(7, 10, 15, 0.2);
+}
+
+.transparent-input {
+   background-color: rgba(255, 255, 255, 0.4);
+   border:none;
+   color:white;
+   margin-top: 3px;
+   margin-bottom: 3px
+}
+
+.logo {
+  width: 110px;
+  opacity: 0.4
+}
+
+.icon-flipped {
+transform: scaleX(-1);
+-moz-transform: scaleX(-1);
+-webkit-transform: scaleX(-1);
+-ms-transform: scaleX(-1);
+color: white;
+}
+
+.toplogo {
+  width: 15px;
+  float:left
+}
+
+.secondlogo {
+  width: 37px
+}
+
+.col-sm-9 {
+  color:white;
+  margin-top: 10px
+
+}
+
+
+.secondnav p{
+  display: inline;
+  color: white;
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif
+}
+
+#agile {
+  font-size: 23px;
+}
+
+.untilagile {
+  display: inline;
+}
+
+.afteragile {
+  display: inline;
+  margin-left: 26px;
+}
+.rightside {
+  display: inline-block;
+  float:right;
+  margin-top: 20px;
+}
+
+.rightpart {
+  float: right;
+  color: white
+}
+
+.rightpart p {
+  text-decoration: underline;
+}
+
+.glyphicon {
+  color: white
+}
+
+.thirdrow {
+  margin-top: 10px;
+}
+
+.box {
+  background-color: #e2e4e6;
+  width: 300px;
+
+}
+
+.medium {
+  height: 400px;
+  margin-left: 5px;
+}
+
+.mediumplus {
+  height: 450px;
+  margin-left: 5px;
+}
+
+.long {
+  height: 600px;
+}
+
+.short {
+  height: 300px;
+
+}
