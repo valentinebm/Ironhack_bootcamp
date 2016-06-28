@@ -1,0 +1,137 @@
+body {
+  text-align: justify;
+  font-family:'Roboto';
+}
+
+header {
+  background-color: #d8d8d8;
+  height: 50px
+}
+
+.brand {
+  display: inline;
+  float: left;
+  margin-top: 16px;
+  margin-left: 20px;
+}
+
+ul {
+  display: inline;
+  float: right;
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+li {
+    display: inline;
+    width: 60px;
+}
+
+main {
+  margin-left: 140px;
+  margin-right: 140px;
+  margin-bottom: 100px
+}
+
+section {
+  margin-left: 140px;
+  margin-right: 140px;
+}
+
+.author {
+  display: inline
+}
+
+.date {
+  display: inline;
+  float: right
+}
+
+.comments {
+  margin-bottom: 100px
+}
+
+.comment {
+  margin-bottom: 50px;
+}
+
+.text-comment {
+  display: inline;
+
+
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background: #d8d8d8;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    border-radius: 60px;
+    display: inline-block;
+    float: left;
+    margin-right: 37px;
+    margin-bottom: 37px;
+    margin-top: 12px
+}
+
+
+input {
+  background-color: #d8d8d8;
+}
+
+label {
+  float: left;
+  margin-bottom: 15px
+}
+
+.write-article {
+  height: 500px
+}
+.input {
+  float: right;
+  border-radius:4px;
+  width: 95%;
+  height: 20px
+}
+
+.input-container {
+  max-width: 1000px;
+  display: block;
+  margin-left: 47px;
+}
+
+.field-container {
+  margin-bottom: 25px
+}
+
+.text-field {
+  height: 150px
+}
+
+.big-container {
+  height: 140px
+}
+
+.button-container {
+  float: right;
+  margin-top: 10px
+}
+
+.button-submit {
+    width: 95px;
+    height: 25px;
+    border-radius:4px;
+    background-color: #d8d8d8;
+}
+
+.main-footer {
+  background-color: #d8d8d8;
+  height: 100px
+}
+
+.copy {
+  float: right;
+  margin-right: 140px;
+  margin-top: 45px;
+}
