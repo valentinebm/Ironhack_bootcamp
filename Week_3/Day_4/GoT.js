@@ -27,17 +27,16 @@ function fileActions(err, file){
       return episode}
     })
 
-    function searchFor(episodes){
+    function searchFor(string, episodes){
       var selected = []
       for (i=0; i<episodes.length; i++){
-        if (episodes[i].description.indexOf("Jon")!= -1 ){
+        if (episodes[i].description.indexOf(string)!= -1 ){
         selected.push(episodes[i])
       }
     }
     print(selected)
   }
 
-    // print(filtered)
-    searchFor(sorted_episodes)
+    searchFor("Jon", sorted_episodes)
 }
 fs.readFile("./GoTEpisodes.json", 'utf8', fileActions);
