@@ -9,7 +9,7 @@ var Viking = function(name, health, strength){
 Viking.prototype.selectEnemy = function(){
   var number = Math.floor((Math.random() * (saxonsArray.length)) + 0);
   saxonsArray[number].cry()
-  saxonsArray[number].reduceHealth()
+  saxonsArray[number].reduceHealth(this.strength)
 }
 
 
@@ -20,7 +20,7 @@ Viking.prototype.shoutWarCry = function(){
 
 saxonsArray = []
 
-var Saxon = function(health=Math.floor((Math.random() * 50) + 1), strength=Math.floor((Math.random() * 50) + 1)){
+var Saxon = function(health=Math.floor((Math.random() * 50) + 40), strength=Math.floor((Math.random() * 10) + 1)){
   this.health = health;
   this.strength = strength;
   //below is a way to keep a count in constructor
@@ -32,15 +32,16 @@ Saxon.prototype.cry = function(){
   console.log("booohooo, it huuurts")
 }
 
-Saxon.prototype.reduceHealth = function(){
+Saxon.prototype.reduceHealth = function(strength){
   var healthbefore = this.health;
-  var healthafter = this.health - 10;
+  var healthafter = this.health - strength;
+
   console.log("You motherfucker bring my health down from: "+healthbefore+" to "+healthafter);
 }
 
-var lorenzo = new Viking("lorenzo", 100, 100)
-var johannus = new Viking("johannus", 100, 100)
-var valentine = new Viking("valentine", 120, 120)
+var lorenzo = new Viking("lorenzo", 100, 20)
+var johannus = new Viking("johannus", 100, 20)
+var valentine = new Viking("valentine", 120, 22)
 
 
 
