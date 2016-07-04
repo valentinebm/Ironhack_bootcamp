@@ -1,0 +1,12 @@
+<h2>Submit a word to generate Ascii Art</h2>
+
+
+<form action="/asciis" method="post">
+  <div>
+    <label for="asciis_user_word">Word</label>
+    <textarea name="asciis[user_word]" id="asciis_user_word"></textarea>
+  </div>
+  <button type="submit">Submit word</button>
+  <input type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+</form>

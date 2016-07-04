@@ -1,0 +1,16 @@
+<p>In your input, there are <%=@word_count%> words.</p>
+
+<p>Therefore, the estimated amount of time to read it is <%=@estimated_time%> minutes.</p>
+
+
+<p>Below are the 10 words that appear the most:</p>
+<ol>
+
+
+<%@selection.each do |key, value| %>
+<li><%= "'#{key}', which appears #{value} times" %></li>
+<br>
+<%end%>
+</ol>
+
+<%= link_to "Back home", "/"%>
