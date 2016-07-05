@@ -8,3 +8,7 @@
 Project.create(name: "Crazy project", description: "You won't believe it")
 Project.create(name: "Another project", description: "So much to say")
 Project.create(name: "Life in Barcelona")
+Project.create(name: "Today", description: "Today is Tuesday")
+Project.create(name: "Tomorrow", description: "Tomorrow is Wednesday")
+Project.create(name: "Day after tomorrow", description: "Day after tomorrow is Thursday")
+Project.create(name: "Lunch", description: "I'm hungry, let's have lunch")
