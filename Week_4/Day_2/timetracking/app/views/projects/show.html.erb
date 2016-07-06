@@ -9,6 +9,9 @@
 
 <h1><%=@project.name%></h1>
 
+
+<a href="/projects/<%=@project.id%>/time_entries">Show time entries</a>
+
 <%= link_to "Back to all  projects", projects_path%>
 <%= link_to "Back to the homepage", "/"%>
 
