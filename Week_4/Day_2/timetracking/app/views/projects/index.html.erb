@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <title></title>
+  </head>
+  <body>
+
+
+<h1>All projects</h1>
+
 <ul>
 
 <%@projects.each do |project| %>
@@ -6,4 +18,10 @@
 
 </ul>
 
+<%= link_to "Create a new project", "/projects/new"%>
+
 <%= link_to "Back to the homepage", "/"%>
+
+
+</body>
+</html>

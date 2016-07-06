@@ -7,10 +7,18 @@
   </head>
   <body>
 
-<h1><%=@project.name%></h1>
+<h1>Add a project</h1>
 
-<%= link_to "Back to all  projects", projects_path%>
-<%= link_to "Back to the homepage", "/"%>
+<%= form_for @project do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name%>
+
+  <%= f.label :description%>
+  <%= f.text_area :description%>
+
+  <%= f.button("submit me")%>
+<%end%>
+
 
 </body>
 </html>
