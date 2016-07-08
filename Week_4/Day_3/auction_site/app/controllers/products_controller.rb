@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
     @bid = Bid.new
     @product_bids = Bid.where('product_id =?', @product.id)
     @user = User.find_by(id: @product)
-
+    @deadline = @product.deadline
+    @highest_bid = @product.bids.order('bids.amount DESC').limit(1).first
+    @highest_bidder = User.find_by(id: @highest_bid.user_id)
     unless @product
       render 'no_product_found'
     end

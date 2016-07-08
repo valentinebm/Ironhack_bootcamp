@@ -8,7 +8,7 @@
 
     <h1>Product page</h1>
     <h2><%=@product.title%></h2>
-    <h3>Bids already made for this product:</h3>
+    <h3>Bids made for this product:</h3>
 
     <ul>
       <%@product_bids.each do |bid|%>
@@ -19,19 +19,24 @@
     </ul>
 
 
-    <h3>Bid on this product:</h3>
+    <% if DateTime.now < @product.deadline%>
+      <h3>Bid on this product:</h3>
 
-      <%= form_for @bid do |f| %>
-      <input type="text" name="bid_email" placeholder="email">
+        <%= form_for @bid do |f| %>
+        <input type="text" name="bid_email" placeholder="email">
 
-      <%= f.label :amount%>
-      <%= f.number_field :amount%>
+        <%= f.label :amount%>
+        <%= f.number_field :amount%>
 
-      <%= f.label :product_id%>
-  
+        <%= f.label :product_id%>
 
-      <%= f.submit "save"%>
+        <%= f.submit "save"%>
+        <%end%>
+    <%else%>
+    <h3>The product has been sold!</h3>
+    <p>Winning bid of <%=@highest_bid.amount%> from <%=@highest_bidder.name%> </p>
     <%end%>
+
 
 
   </body>
