@@ -13,7 +13,7 @@ class Bid < ApplicationRecord
   def amount_cannot_be_lower_than_last_bid
     if Bid.exists?(:product_id =>self.product_id)
       @product = Product.find_by(id: self.product_id)
-      @last_bid = @product.bids.order('bids.amount DESC').limit(1).first
+      @last_bid = @product.bids.order('bids.amount DESC').first
       @last_bid_amount = @last_bid.amount
 
       if amount <= @last_bid.amount

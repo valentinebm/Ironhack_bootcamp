@@ -26,11 +26,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(title: params[:product][:title], description: params[:product][:description],
+    product = Product.new(title: params[:product][:title], description: params[:product][:description],
                           deadline: params[:product][:deadline], user_id: 2, minimum_bid: params[:product][:minimum_bid])
 
-    @product.save
-    redirect_to "/products/#{@product.id}"
+    product.save
+    redirect_to "/products/#{product.id}"
   end
 
   def destroy
