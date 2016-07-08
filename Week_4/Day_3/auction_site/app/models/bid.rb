@@ -2,8 +2,7 @@ class Bid < ApplicationRecord
   belongs_to :product
   has_one :user
 
-  validate :amount_cannot_be_lower_than_minimum_bid
-  validate :amount_cannot_be_lower_than_last_bid
+  validate :amount_cannot_be_lower_than_minimum_bid, :amount_cannot_be_lower_than_last_bid
 
   def amount_cannot_be_lower_than_minimum_bid
       if amount < product.minimum_bid

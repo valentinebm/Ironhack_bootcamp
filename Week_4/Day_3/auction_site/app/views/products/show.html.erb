@@ -22,6 +22,10 @@
         <%end%>
         </li>
     </ul>
+    <%if flash[:notice]%>
+      <%=flash[:notice]%>
+    <%end%>
+
 
 
     <% if DateTime.now < @product.deadline%>
