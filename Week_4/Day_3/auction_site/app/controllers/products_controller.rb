@@ -5,9 +5,10 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
+    @product = Product.find(params[:id])
     @bid = Bid.new
-    @bids = Bid.order(created_at: :desc)
+    @product_bids = Bid.where('product_id =?', @product.id)
+    @user = User.find_by(id: @product)
 
     unless @product
       render 'no_product_found'
