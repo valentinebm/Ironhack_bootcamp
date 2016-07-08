@@ -7,15 +7,20 @@
   <body>
 
     <h1>Product page</h1>
-    <h2><%=@product.title%></h2>
+    <h2><%=@product.title%>, minimum bid: <%=@product.minimum_bid%>$</h2>
     <h3>Bids made for this product:</h3>
 
-    <ul>
-      <%@product_bids.each do |bid|%>
-      <li> <%= bid.amount %> $ from <%user = User.find_by(id: bid.user_id)%>
-        <%=user.name %>
+    <%if Bid.exists?(:product_id =>@product.id)%>
+      <ul>
+        <%@product_bids.each do |bid|%>
+        <li> <%= bid.amount %> $ from <%user = User.find_by(id: bid.user_id)%>
+          <%=user.name %>
+          <%end%>
+        <%else%>
+        <p>No bids have been made yet.
+        </p>
         <%end%>
-      </li>
+        </li>
     </ul>
 
 
@@ -33,10 +38,9 @@
         <%= f.submit "save"%>
         <%end%>
     <%else%>
-    <h3>The product has been sold!</h3>
-    <p>Winning bid of <%=@highest_bid.amount%> from <%=@highest_bidder.name%> </p>
+      <h3>The product has been sold!</h3>
+      <p>Winning bid of <%=@highest_bid.amount%> from <%=@highest_bidder.name%> </p>
     <%end%>
-
 
 
   </body>
