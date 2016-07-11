@@ -20,6 +20,7 @@ $(".addphrase").submit(function(e){
   var newphrase = $('#newphrase').val();
   phrases.push(newphrase);
   showNewPhrase(newphrase)
+  $(".addphrase")[0].reset()
 })
 
 //to be kept and add function phrasesdisplay(){
