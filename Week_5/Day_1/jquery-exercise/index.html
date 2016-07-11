@@ -3,21 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Best phrases</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Special+Elite|Poiret+One|Coda' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
     <h1>Phrase of the day</h1>
+    <div class="phrase-container">
     <p class="phrase"> </p>
-    <button class="button-refresh" type="button" name="button">Refresh</button>
+    </div>
 
-    <p>Add a cool phrase</p>
+    <div class="button-wrapper">
+    <button class="button-refresh" type="button" name="button">Refresh</button>
+    </div>
+
+    <div class="addphrase-container">
+
+
+    <p class="calltoaction">Add a phrase</p>
 
     <form class="addphrase" action="" method="">
       <input type="text" id="newphrase">
     </form>
+    </div>
 
-    <a href="" class="viewphrase"> Show/Hide Sentences</a>
-    <ul class="allsentences"> </ul>
+    <div class="displayphrases">
+      <a href="" class="viewphrase"> Show/Hide Sentences</a>
+      <ul class="allsentences"> </ul>
+    </div>
 
   <script src="jquery-2.1.4.js"></script>
   <script src="index.js"></script>

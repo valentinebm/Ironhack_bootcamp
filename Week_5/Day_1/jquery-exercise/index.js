@@ -41,7 +41,6 @@ $(".viewphrase").click(function(e){
 }
 });
 
-
 function showNewPhrase(newphrase){
       var li = $('<li/>')
         .appendTo(list);
@@ -49,7 +48,6 @@ function showNewPhrase(newphrase){
         .text(newphrase)
         .appendTo(li);
 }
-
 
 
 loadPhrase();
