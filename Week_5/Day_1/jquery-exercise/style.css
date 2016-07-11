@@ -17,6 +17,7 @@ h1 {
   font-family: 'Poiret One', cursive;
   color: #00607F;
   margin-left: 20px;
+  text-align:center
 }
 
 
@@ -73,6 +74,7 @@ li {
   display: inline;
 }
 
-p {
+
+ul p {
   display:inline;
 }
