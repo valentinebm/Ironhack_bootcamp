@@ -23,7 +23,7 @@ $(".addphrase").submit(function(e){
   $(".addphrase")[0].reset()
 })
 
-//to be kept and add function phrasesdisplay(){
+
 
 $(".viewphrase").click(function(e){
   e.preventDefault();
@@ -35,6 +35,11 @@ $(".viewphrase").click(function(e){
       var content = $('<p/>')
         .text(this)
         .appendTo(li);
+
+      var button = $('<button/>')
+      .text("remove")
+      .appendTo(li)
+      .addClass("newbutton")
     })
   }
   else {
@@ -48,6 +53,11 @@ function showNewPhrase(newphrase){
       var content = $('<p/>')
         .text(newphrase)
         .appendTo(li);
+
+      var button = $('<button/>')
+        .text("remove")
+        .appendTo(li)
+        .addClass("newbutton")
 }
 
 

@@ -54,7 +54,25 @@ input {
 	border-radius:.25em;
 	background:transparent;}
 
-  .displayphrases {
+.displayphrases {
     margin-left: 40px;
     margin-top: 30px
-  }
+}
+
+li {
+  display:block;
+}
+
+.newbutton {
+  background-color: #c0392b;
+	color: #fff;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+  display: inline;
+}
+
+p {
+  display:inline;
+}
