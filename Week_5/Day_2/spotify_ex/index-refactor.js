@@ -1,22 +1,21 @@
 var Trigger = function (buttonclass, inputname) {
-  this.button = $(buttonclass);
+  this.buttonclass = buttonclass
   this.inputname = inputname;
 }
 
 var SearchController = function(trigger) {
-  this.button = trigger.button;
+  this.button = trigger.buttonclass;
   this.input = trigger.inputname;
   this.setListeners();
 };
 
 SearchController.prototype.setListeners = function(){
-    console.log(this.button)
-    // this.button.on('click', function(e) {
-    // e.preventDefault();
-    // var keyword = $('[name="artist"]').val();
-    // controller = new SearchController(keyword)
-    // controller.getData(keyword)
-  // });
+  var input = this.input
+  var controller = this
+  $(this.button).on('click', function(e) {
+    e.preventDefault();
+    controller.getData($('input').val())
+    });
 }
 
 SearchController.prototype.getData = function(keyword){
