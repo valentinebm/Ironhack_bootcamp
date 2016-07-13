@@ -60,5 +60,4 @@ function showNewPhrase(newphrase){
         .addClass("newbutton")
 }
 
-
 loadPhrase();

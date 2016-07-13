@@ -48,3 +48,36 @@
 .image {
   height: 100%;
 }
+
+
+
+button {
+  padding: 15px 40px;
+  display:block;
+  margin:0 auto;
+  background: #0099CC;
+  border: none;
+  border-radius: 4px;
+
+  color: white;
+
+  animation: attention 8s ease infinite;
+}
+
+@keyframes attention {
+  9% {
+    transform: none;
+  }
+  12% {
+    transform: scale(1.05);
+  }
+  16% {
+    transform: scale(0.95);
+  }
+  20% {
+    transform: scale(1.03);
+  }
+  24% {
+    transform: scale(1);
+  }
+}

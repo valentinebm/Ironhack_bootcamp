@@ -42,7 +42,6 @@ $('.cell').on('click', function(e) {
 function triggerClicks(){
   var cells = $('.cell');
   var time = 50;
-  console.log(cells)
 
   for(i=0; i<100; i++){
     (function(i){
@@ -53,4 +52,6 @@ function triggerClicks(){
   }
 }
 
-triggerClicks()
+$('.trigger').on('click', function(e) {
+  triggerClicks()
+})
