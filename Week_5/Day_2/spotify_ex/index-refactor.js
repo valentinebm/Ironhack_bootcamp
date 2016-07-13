@@ -1,3 +1,5 @@
+$(function () {
+
 var Trigger = function (buttonclass, inputname) {
   this.buttonclass = buttonclass
   this.inputname = inputname;
@@ -30,9 +32,12 @@ SearchController.prototype.getData = function(keyword){
 }
 
 SearchController.prototype.displayArtists = function(artists, index){
+  var content = $('<div>').addClass('content');
+  $('.leftside').append(content)
+
   artists.forEach( function(artist) {
   var listItem = $('<a href="">').text(artist.name)
-  $('ul.artistlist').append(listItem, $('<hr>'))
+  $(content).append(listItem, $('<hr>'))
   listItem.attr('id', artist.id)
 
     if (artist.images != '') {
@@ -43,8 +48,7 @@ SearchController.prototype.displayArtists = function(artists, index){
 }
 
 function cleanLeftSide(){
-  $( "ul.artistlist" ).empty();
-  $( ".results" ).empty();
+  $('.leftside').empty();
 }
 
 function addImage(artist, image){
@@ -56,46 +60,51 @@ function cleanRightSide(){
   $( ".albumstitle" ).empty();
 }
 
-SearchController.prototype.fetchArtists = function(response) {
-  cleanLeftSide();
-  var artistarray = response.artists.items;
-  var index = 1;
-  var results = $('<h1>').text("Results")
-  $('.results').append(results);
+SearchController.prototype.displayAlbums = function(albums){
+  albums.forEach( function(album){
+    var name = $('<li>').text(album.name)
+    $('.albums').append(name)
+  })
+}
 
-  controller.displayArtists(artistarray, index);
-
+SearchController.prototype.getAlbums = function(artistid, url){
   function addTitle(){
     var albums = $('<h3>').text("Albums")
     $('.albumstitle').append(albums)
   }
 
-  function displayAlbums(artistalbums){
-      artistalbums.forEach( function(album){
-      var name = $('<li>').text(album.name)
-      $('.albums').append(name)
-      })
-  }
+  addTitle()
+  $.ajax({
+    type:'GET',
+    url: url,
+    success: function(response) {
+      controller.displayAlbums(response.items)
+    }
+  })
+}
 
-  function getAlbums(artistid, url){
-    addTitle()
-    $.ajax({
-      type:'GET',
-      url: url,
-      success: function(response) {
-        displayAlbums(response.items)
-      }
-    })
-  }
+SearchController.prototype.fetchArtists = function(response) {
+
+  cleanLeftSide();
+  var artistarray = response.artists.items;
+  var index = 1;
+  var results = $('<h1>').text("Results");
+
+  if($('.leftside').is(':empty')){
+    $('.leftside').append(results);}
+
+  controller.displayArtists(artistarray, index);
+
 
   $('a').on('click', function(e) {
     e.preventDefault();
     cleanRightSide();
     artistid = this.id,
     url = 'https://api.spotify.com/v1/artists/'+artistid+'/albums'
-    getAlbums(artistid, url);
+    controller.getAlbums(artistid, url);
   })
 }
 
 var trigger = new Trigger('.searchbutton', '[name="artist"]')
 var controller = new SearchController(trigger);
+})
