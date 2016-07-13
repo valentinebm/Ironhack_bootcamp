@@ -13,7 +13,6 @@ function makeGrid(root){
       cell.attr('col', col);
       cell.attr('row', row);
       cells.push(cell);
-
     }
   }
 };
@@ -39,3 +38,19 @@ $('.cell').on('click', function(e) {
     }
   })
 })
+
+function triggerClicks(){
+  var cells = $('.cell');
+  var time = 50;
+  console.log(cells)
+
+  for(i=0; i<100; i++){
+    (function(i){
+      setTimeout(function(){
+        cells[i].click()
+      }, 1500*i);
+    }(i));
+  }
+}
+
+triggerClicks()
