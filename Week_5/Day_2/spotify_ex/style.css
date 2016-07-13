@@ -22,7 +22,7 @@ h1 {
 }
 
 img {
-  width: 90px;
+  height: 100px;
   float: right
 }
 
@@ -62,5 +62,5 @@ ul.artistlist {
 }
 
 hr {
-  
+
 }

@@ -1,13 +1,23 @@
-var SearchController = function(keyword) {
-  this.keyword = keyword;
+var Trigger = function (buttonclass, inputname) {
+  this.button = $(buttonclass);
+  this.inputname = inputname;
+}
+
+var SearchController = function(trigger) {
+  this.button = trigger.button;
+  this.input = trigger.inputname;
+  this.setListeners();
 };
 
-$('.searchbutton').on('click', function(e) {
-  e.preventDefault();
-  var keyword = $('[name="artist"]').val();
-  controller = new SearchController(keyword)
-  controller.getData(keyword)
-});
+SearchController.prototype.setListeners = function(){
+    console.log(this.button)
+    // this.button.on('click', function(e) {
+    // e.preventDefault();
+    // var keyword = $('[name="artist"]').val();
+    // controller = new SearchController(keyword)
+    // controller.getData(keyword)
+  // });
+}
 
 SearchController.prototype.getData = function(keyword){
   var controller = this
@@ -87,3 +97,6 @@ SearchController.prototype.fetchArtists = function(response) {
     getAlbums(artistid, url);
   })
 }
+
+var trigger = new Trigger('.searchbutton', '[name="artist"]')
+var controller = new SearchController(trigger);
