@@ -17,6 +17,7 @@ $('.searchbutton').on('click', function(e) {
         artistarray.forEach( function(artist) {
           var listItem = $('<a href="">').text(artist.name)
           $('ul.artistlist').append(listItem)
+          $('ul.artistlist').append($('<hr>'))
           listItem.addClass("link" + index++)
           listItem.attr('id', artist.id)
           listItem.addClass("link")
@@ -34,10 +35,9 @@ $('.searchbutton').on('click', function(e) {
           e.preventDefault();
           $( "ul.albums" ).empty();
           $( ".albumstitle" ).empty();
-          $( ".results" ).empty();
           artistid = this.id
           url = 'https://api.spotify.com/v1/artists/'+artistid+'/albums'
-          var albums = $('<h1>').text("Albums")
+          var albums = $('<h3>').text("Albums")
           $('.albumstitle').append(albums)
 
           $.ajax({
