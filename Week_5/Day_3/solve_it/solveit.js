@@ -17,7 +17,9 @@ $(function(){
   for (let i=0; i<10; i++) {
     var button = $('<button>').text('click #' + i);
     $('.container').append(button);
-    button.on('click', function(){
+    button.on('click', function(e){
+      // console.log($(e.currentTarget))
+      // console.log(this)
       console.log('You clicked on the button ' + i);
     })
   }
