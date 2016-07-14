@@ -1,32 +1,30 @@
-var PokemonController = function(){
-  // console.log('in da pokemon controller')
-  this.setListeners()
-};
+(function () {
+  if (typeof window.PokemonApp === 'undefined'){
+    window.PokemonApp = {};
+  }
 
-PokemonController.prototype.fetchPokemon = function(e) {
-  var clickedEl = $( e.currentTarget)
-  var url = clickedEl.data('pokemon-uri');
+  var PokemonController = PokemonApp.PokemonController = function(){
+    this.setListeners()
+  };
 
-  $.ajax({
-      url: url,
-      success: this.render,
-    });
-}
+  function privateThing(){
+    console.log('in da private')
+  }
 
+  PokemonController.prototype.onClick = function(e) {
+    privateThing();
+    var clickedEl = $(e.currentTarget);
+    var url = clickedEl.data('pokemon-uri');
+    var model = new PokemonApp.PokemonModel(url);
+    var view = new PokemonApp.PokemonView(model);
+    // Fetch is making an Ajax call which is asynchronous
+    // we want the view to be rendered when the Ajax call is finished
+    // we pass the function we want to call on success
+    model.fetch(view.render.bind(view));
+  }
 
-PokemonController.prototype.render = function(pokemonData) {
-  $('.js-pokemon-name').text(pokemonData.name)
-  $('.js-pokemon-height').text(pokemonData.height)
-  $('.js-pokemon-weight').text(pokemonData.weight)
-  $('.js-pokemon-national_id').text('#' + pokemonData.national_id)
-  //modal is a method added by bootstrap
-  $('.modal').modal('show')
-}
-
-
-
-PokemonController.prototype.setListeners = function(){
-  var controller = this;
-  $('.js-show-pokemon').on('click', this.fetchPokemon.bind(this))
-    //this === e.currentTarget --->jquery feature
-}
+  PokemonController.prototype.setListeners = function(){
+    $('.js-show-pokemon').on('click', this.onClick.bind(this))
+      //this === e.currentTarget --->jquery feature
+  }
+})()
