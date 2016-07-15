@@ -1,6 +1,6 @@
-$(function(){
+  window.SpotifyApp = window.SpotifyApp || {};
 
-  var SongModel = function(url){
+  var SongModel = SpotifyApp.SongModel = function(url){
     this.url = url
   }
 
@@ -17,9 +17,9 @@ $(function(){
           song.artists.forEach( function(artist){
             model.artistArray.push(' '+artist.name)
           })
+        model.preview = song.preview_url
+
         callback()
       }
     })
   }
-
-})
