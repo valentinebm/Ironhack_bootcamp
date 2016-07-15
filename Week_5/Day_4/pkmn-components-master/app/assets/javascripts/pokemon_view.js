@@ -11,6 +11,7 @@
     $('.js-pokemon-name').text(this.model.name)
     $('.js-pokemon-height').text(this.model.height)
     $('.js-pokemon-weight').text(this.model.weight)
+    $('.js-pokemon-hp').text(this.model.hp)
     $('.js-pokemon-national_id').text('#' + this.model.national_id)
     $('.js-pokemon-attack').text(this.model.attack)
     $('.js-pokemon-defense').text(this.model.defense)

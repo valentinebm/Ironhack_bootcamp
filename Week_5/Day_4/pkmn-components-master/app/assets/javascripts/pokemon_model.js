@@ -16,10 +16,12 @@
             model.national_id = pokemonData.national_id;
             model.height = pokemonData.height;
             model.weight = pokemonData.weight;
+            model.hp = pokemonData.hp;
             model.attack = pokemonData.attack;
             model.defense = pokemonData.defense;
             model.happiness = pokemonData.happiness;
             model.imagelink = pokemonData.sprites[0].resource_uri
+            console.log(pokemonData)
 
               $.ajax({
                 url: model.imagelink,
