@@ -8,6 +8,7 @@ RSpec.describe IngredientsController, type: :controller do
       expect(response.code).to eq("200")
       expect(response).to be_success
       expect(response).to have_http_status(200)
+      expect(response).to render_template(:index)
     end
   end
 
@@ -17,6 +18,7 @@ RSpec.describe IngredientsController, type: :controller do
       ingredient = Ingredient.create(name: 'tomato', calories: 85)
       get :show, {id: ingredient.id}
       expect(response).to be_success
+      expect(response).to render_template(:show)
       ingredient.destroy
     end
 

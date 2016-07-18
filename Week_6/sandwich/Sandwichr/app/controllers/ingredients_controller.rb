@@ -14,13 +14,12 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    ingredient = Ingredient.find_by(id: params[:id])
-    unless ingredient
+    @ingredient = Ingredient.find_by(id: params[:id])
+    unless @ingredient
       render json: {error: "ingredient not found"},
       status: 404
       return
     end
-    render json: ingredient
   end
 
   def update
