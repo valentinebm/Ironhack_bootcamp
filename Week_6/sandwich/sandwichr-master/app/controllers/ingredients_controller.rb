@@ -44,7 +44,7 @@ class IngredientsController < ApplicationController
 
 	private
 
-	def sandwich_params
+	def ingredient_params
 	  params.require(:ingredient)
 	    .permit(:name, :calories)
 	end

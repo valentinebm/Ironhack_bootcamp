@@ -9,6 +9,14 @@ class SandwichesController < ApplicationController
 	  render json: sandwich
 	end
 
+	def add_ingredients
+		sandwich = Sandwich.find_by(id: params[:id])
+		ingredient = Ingredient.find_by(id: params[:ingredient])
+		sandwich.ingredients.push(ingredient)
+
+		render json: ingredient
+	end
+
 	def show
 	  sandwich = Sandwich.find_by(id: params[:id])
 	  unless sandwich
@@ -39,6 +47,11 @@ class SandwichesController < ApplicationController
 	  end
 	  sandwich.destroy
 	  render json: sandwich
+	end
+
+	def ingredients
+		@sandwich = Sandwich.find_by(id: params[:id])
+		@ingredients = Ingredient.all
 	end
 
 
