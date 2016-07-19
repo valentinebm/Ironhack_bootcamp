@@ -24965,3 +24965,774 @@ Processing by SandwichViewsController#show as HTML
   [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
   Rendered sandwich_views/show.html.erb within layouts/application (3.2ms)
 Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:20:05 +0200
+Processing by SandwichesController#add_ingredient as */*
+  Parameters: {"ingredient"=>"5, button", "id"=>"1"}
+  [1m[35mSandwich Load (0.1ms)[0m  SELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "sandwich_ingredients" ("sandwich_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["sandwich_id", 1], ["ingredient_id", 5], ["created_at", "2016-07-19 18:20:05.428322"], ["updated_at", "2016-07-19 18:20:05.428322"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:20:05 +0200
+Processing by SandwichesController#add_ingredient as */*
+  Parameters: {"ingredient"=>"7, button", "id"=>"1"}
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sandwich_ingredients" ("sandwich_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["sandwich_id", 1], ["ingredient_id", 7], ["created_at", "2016-07-19 18:20:05.976427"], ["updated_at", "2016-07-19 18:20:05.976427"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/sandwiches" for ::1 at 2016-07-19 20:20:17 +0200
+Processing by SandwichViewsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT "sandwiches".* FROM "sandwiches"[0m
+  Rendered sandwich_views/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/sandwiches" for ::1 at 2016-07-19 20:21:58 +0200
+Processing by SandwichViewsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT "sandwiches".* FROM "sandwiches"[0m
+  Rendered sandwich_views/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 90ms (Views: 88.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/assets/sandwich_views.self-701d77c442cd14bb309624591e44e3d7e60d7aa7305e1d2640b22953e1ab6fd4.js?body=1" for ::1 at 2016-07-19 20:21:58 +0200
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:21:59 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:23:17 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.2ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 114ms (Views: 89.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started GET "/assets/sandwich_views.self-1dd2ad089d2e1254f18cf8f8406fcc08597008f8eb914dcc798b7fd6a75208f3.js?body=1" for ::1 at 2016-07-19 20:23:17 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:23:19 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/sandwiches_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (44.8ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:23:41 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 54ms (Views: 32.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/sandwich_views.self-1dd2ad089d2e1254f18cf8f8406fcc08597008f8eb914dcc798b7fd6a75208f3.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:23:42 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:23:43 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/sandwiches_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.4ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (39.6ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:24:01 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 61ms (Views: 37.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:24:01 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:24:01 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/sandwiches_controller.rb:67: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (40.4ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:24:14 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 62ms (Views: 35.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:24:14 +0200
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:24:18 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.2ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 57ms (Views: 35.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:24:18 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:24:19 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:18: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:18: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (44.3ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:24:32 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 58ms (Views: 36.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:24:32 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:24:33 +0200
+Processing by SandwichesController#add_ingredient as */*
+  Parameters: {"ingredient"=>"1, button", "id"=>"1"}
+  [1m[35mSandwich Load (0.1ms)[0m  SELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:24:35 +0200
+Processing by SandwichesController#add_ingredient as */*
+  Parameters: {"ingredient"=>"2, button", "id"=>"1"}
+  [1m[35mSandwich Load (0.1ms)[0m  SELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:25:45 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.1ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.3ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 64ms (Views: 35.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:25:45 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:25:46 +0200
+Processing by SandwichesController#add_ingredient as */*
+  Parameters: {"ingredient"=>"1, button", "id"=>"1"}
+  [1m[35mSandwich Load (0.1ms)[0m  SELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.2ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.2ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?[0m  [["sandwich_id", 1]]
+Completed 500 Internal Server Error in 72196ms (ActiveRecord: 0.8ms)
+
+SystemExit (exit):
+  app/controllers/sandwiches_controller.rb:17:in `add_ingredient'
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (242.1ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (7.7ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (4.4ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (308.1ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:27:00 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.7ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.8ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.7ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (140.5ms)
+Completed 200 OK in 621ms (Views: 416.5ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:27:02 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.4ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.5ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.8ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (43.4ms)
+Completed 200 OK in 307ms (Views: 276.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:27:02 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.4ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.6ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.6ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 268ms (Views: 249.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:27:03 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:27:04 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:18: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:18: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (159.9ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (15.9ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (6.3ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (235.1ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:27:19 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.6ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.8ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.8ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (135.5ms)
+Completed 200 OK in 619ms (Views: 414.2ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:27:21 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:27:22 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:27:22 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:19: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (165.0ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (3.5ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (7.2ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (240.1ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:28:14 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.5ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.6ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.8ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (82.2ms)
+Completed 200 OK in 380ms (Views: 248.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:28:16 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:28:18 +0200
+
+SyntaxError (/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+/Users/valentinebm/Desktop/Ironhack_bootcamp/Week_6/Day_1/sandwich/sandwichr-master/app/controllers/sandwiches_controller.rb:18: syntax error, unexpected '}', expecting keyword_end):
+  app/controllers/sandwiches_controller.rb:16: syntax error, unexpected '{', expecting keyword_then or ';' or '\n'
+  app/controllers/sandwiches_controller.rb:18: syntax error, unexpected '}', expecting keyword_end
+
+
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (152.9ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (18.8ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (5.8ms)
+  Rendered /Users/valentinebm/.rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (222.1ms)
+
+
+Started GET "/sandwiches/1" for ::1 at 2016-07-19 20:29:32 +0200
+Processing by SandwichViewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mSandwich Load (0.5ms)[0m  [1mSELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mIngredient Load (0.6ms)[0m  SELECT "ingredients".* FROM "ingredients" INNER JOIN "sandwich_ingredients" ON "ingredients"."id" = "sandwich_ingredients"."ingredient_id" WHERE "sandwich_ingredients"."sandwich_id" = ?  [["sandwich_id", 1]]
+  [1m[36mIngredient Load (0.5ms)[0m  [1mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered sandwich_views/show.html.erb within layouts/application (71.1ms)
+Completed 200 OK in 342ms (Views: 222.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/home.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/sandwich_views.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/ingredients.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/sandwiches.self-c627e6445e6757e1264f5962997458a1254615cd17b3cb39063dc37359472bee.css?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/application.self-b36e9923a33212aa22bfc0e0be3ac03e577fc709ac804baf35d9c6f69f11aea0.css?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/home.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/ingredients.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/sandwich_views.self-5266d1fb744fe6c4871e14c388ffbe7d7f4555d8759267d8bb176478d98a0037.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/sandwiches.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started GET "/assets/application.self-377610cd7c1509e934744c810e3b4cf672dfbcacac3274e7d039827e2ae0fcc7.js?body=1" for ::1 at 2016-07-19 20:29:33 +0200
+
+
+Started POST "/api/sandwiches/1/ingredients/add" for ::1 at 2016-07-19 20:29:35 +0200
+Processing by SandwichesController#add_ingredient as */*
+  Parameters: {"ingredient"=>"1, button", "id"=>"1"}
+  [1m[35mSandwich Load (0.5ms)[0m  SELECT  "sandwiches".* FROM "sandwiches" WHERE "sandwiches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mIngredient Load (0.7ms)[0m  [1mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 40ms (Views: 3.7ms | ActiveRecord: 1.2ms)
