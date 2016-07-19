@@ -1,0 +1,9 @@
+<h1>Sandwiches</h1>
+<ul>
+<%@sandwiches.each do |sandwich|%>
+<li>
+  <%= link_to sandwich.name, sandwich_path(sandwich.id) %>
+</li>
+<% end %>
+
+</ul>
