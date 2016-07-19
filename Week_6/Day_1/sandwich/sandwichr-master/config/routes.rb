@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resources :ingredients
   # resources :sandwiches
+  root 'home#index'
+
   resources :sandwiches, only: [:index, :show], controller: "sandwich_views"
 
   scope "/api" do
@@ -9,9 +12,7 @@ Rails.application.routes.draw do
     post "/sandwiches/:id/ingredients/add" => "sandwiches#add_ingredient"
   end
 
-  get('/sandwiches/:id/ingredients', :to => 'sandwiches#ingredients')
 
-  post('/sandwiches/:id/ingredients/add', :to => 'sandwiches#add_ingredients')
 
 
 

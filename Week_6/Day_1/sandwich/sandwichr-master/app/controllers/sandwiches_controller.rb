@@ -9,7 +9,7 @@ class SandwichesController < ApplicationController
 	  render json: sandwich
 	end
 
-	def add_ingredients
+	def add_ingredient
 		sandwich = Sandwich.find_by(id: params[:id])
 		ingredient = Ingredient.find_by(id: params[:ingredient])
 		sandwich.ingredients.push(ingredient)
