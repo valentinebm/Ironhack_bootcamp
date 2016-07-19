@@ -1,25 +1,48 @@
-<h1><%=@sandwich.name%></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
 
-  <p>Bread type: <%=@sandwich.bread_type%></p>
-  <p>Ingredients:
-    <ul class="ingredient-list">
-      <%@sandwich.ingredients.each do |ingredient|%>
-      <li><%=ingredient.name%></li>
-      <%end%>
-    </ul>
-  </p>
-  <p>Calories:
-    <% calories = [] %>
-    <%@sandwich.ingredients.each do |ingredient|%>
-    <% calories.push(ingredient.calories)%>
-    <%end%>
-    <% calories = calories.reduce do |sum, calorie| sum += calorie end %>
-    <span class="calories"><%=calories%></span>
-  </p>
+    <div class="main-container">
+      <h1><%=@sandwich.name%></h1>
+      <div class="back-to-sandwiches">
+        <%= link_to "Back to all sandwiches", sandwiches_path %>
+      </div>
+
+      <div class="info-container">
+        <p>Bread type: <%=@sandwich.bread_type%></p>
+        <p>Ingredients:
+          <ul class="ingredient-list">
+            <%@sandwich.ingredients.each do |ingredient|%>
+            <li><%=ingredient.name%></li>
+            <%end%>
+          </ul>
+        </p>
+        <p>Calories:
+          <% calories = [] %>
+          <%@sandwich.ingredients.each do |ingredient|%>
+          <% calories.push(ingredient.calories)%>
+          <%end%>
+          <% calories = calories.reduce do |sum, calorie| sum += calorie end %>
+          <span class="calories"><%=calories%></span>
+        </p>
+      </div>
 
 
-<h2>Add an ingredient to this sandwich</h2>
-<%@ingredients.each do |ingredient|%>
-<button class= "<%=ingredient.id%>"> <%= ingredient.name%> </button>
-<%end%>
+      <h2>Add an ingredient to this sandwich</h2>
+      <div class="ingredient-buttons">
+        <%@ingredients.each do |ingredient|%>
+        <button class= "<%=ingredient.id%>, button"> <%= ingredient.name%> </button>
+        <%end%>
+      </div>
+
+
+    </div>
+
+
+  </body>
+</html>
