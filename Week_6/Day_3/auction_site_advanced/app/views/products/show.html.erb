@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Product page</h1>
+    <h2><%=@product.title%>, minimum bid: <%=@product.minimum_bid%>$, deadline: <%=@product.deadline.strftime("%B %d, %Y")%></h2>
+    <h3>Bids made for this product:</h3>
+
+    <%if Bid.exists?(:product_id =>@product.id)%>
+      <ul>
+        <%@product_bids.each do |bid|%>
+        <li> <%= bid.amount %> $ from <%user = User.find_by(id: bid.user_id)%>
+          <%=user.name %>
+          <%end%>
+        <%else%>
+        <p>No bids have been made yet.
+        </p>
+        <%end%>
+        </li>
+    </ul>
+    <%if flash[:notice]%>
+      <%=flash[:notice]%>
+    <%end%>
+
+
+
+    <% if DateTime.now < @product.deadline%>
+      <h3>Bid on this product:</h3>
+
+        <%= form_for @bid do |f| %>
+        <input type="text" name="bid_email" placeholder="email">
+
+        <%= f.label :amount%>
+        <%= f.number_field :amount%>
+
+        <%= f.label :product_id%>
+
+        <%= f.submit "save"%>
+        <%end%>
+    <%else%>
+      <h3>The product has been sold!</h3>
+      <p>Winning bid of <%=@highest_bid.amount%> from <%=@highest_bidder.name%> </p>
+    <%end%>
+
+
+  </body>
+</html>

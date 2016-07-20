@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AuctionSite</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, id: key, style: "color: pink;"%>
+    <% end %>
+    <%= yield %>
+
+  <footer>
+    <% unless @current_user.nil? %>
+      <%= link_to "Log out", "/logout", :method => :delete %>
+    <% end %>
+
+    <% current_uri = request.env['PATH_INFO']%>
+    <% if @current_user.nil? && current_uri != '/login' %>
+      <%= link_to "Log in", "/login" %>
+    <% end %>
+  </footer>
+
+  </body>
+</html>
