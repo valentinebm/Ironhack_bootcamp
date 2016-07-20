@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authorize_user, only: [:show]
 
   def home
-    if current_user.nil?
-    @name = 'stranger'
-
-    else
-    @name = current_user.name
-    end
   end
 
   def index
@@ -15,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @products_offered = User.find_by(id: current_user.id).products
     @bids = Bid.where(user_id: current_user.id)
     @products_bid = []

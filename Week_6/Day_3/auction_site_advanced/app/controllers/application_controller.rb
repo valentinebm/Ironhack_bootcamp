@@ -1,18 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user
+  before_action :configurate_permitted_parameters, if: :devise_controller?
 
-  def current_user
-    if @current_user.nil?
-      @current_user = User.find_by(id: session[:user_id])
-    end
-    @current_user
+  protected
+
+  def configurate_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:name, :email, :password])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
-
-  def authorize_user
-    unless current_user
-      flash[:message] = 'Please log in to access this page'
-      redirect_to root_path
-    end
-  end 
 end

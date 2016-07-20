@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(name: "Valentine", email: "valentine.barbierm@gmail.com", password: "vbm")
-User.create(name: "Marie", email: "marie.barbierm@gmail.com", password: "mbm")
-User.create(name: "Zoé", email: "zoe.barbierm@gmail.com", password: "zbm")
-User.create(name: "Sophie", email: "sophie.barbierm@gmail.com", password: "zbm")
+# User.create(name: "Valentine", email: "valentine.barbierm@gmail.com", password: "vbm")
+# User.create(name: "Marie", email: "marie.barbierm@gmail.com", password: "mbm")
+# User.create(name: "Zoé", email: "zoe.barbierm@gmail.com", password: "zbm")
+# User.create(name: "Sophie", email: "sophie.barbierm@gmail.com", password: "zbm")
 
 Product.create(title: "Iphone 6+", description: "Perfect condition", deadline: 10.days.from_now, user_id: 1, minimum_bid: 300)

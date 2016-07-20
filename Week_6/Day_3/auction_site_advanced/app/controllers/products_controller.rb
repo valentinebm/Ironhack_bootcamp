@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :authorize_user
 
   def index
     @products = Product.order(created_at: :desc)
