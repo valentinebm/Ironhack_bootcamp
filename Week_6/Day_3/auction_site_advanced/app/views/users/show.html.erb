@@ -27,9 +27,9 @@
     <ul>
       <% @products_really_won.each do |id|%>
       <% product = Product.find_by(id: id) %>
-      <% if DateTime.now <product.deadline %>
-      <li><%= "#{product.title}(#{product.id})"%></li>
-      <%end%>
+        <% if DateTime.now > product.deadline %>
+        <li><%= "#{product.title}(#{product.id})"%></li>
+        <%end%>
       <%end%>
     </ul>
 
