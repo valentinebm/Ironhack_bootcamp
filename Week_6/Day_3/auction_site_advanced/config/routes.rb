@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   # get '/products/:id', to:'products#show'
   resources :products
 
+  get '/profile', to: 'users#show'
+
   post '/ /:id/', to: 'bids#create', as: :bids
 
 end

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1><%=current_user.name%></h1>
+
+    <p>Products offered</p>
+    <ul>
+      <% @products_offered.each do |product|%>
+        <li><%= product.title%></li>
+      <%end%>
+    </ul>
+
+    <p>Bids offered</p>
+    <ul>
+      <% @bids.each do |bid|%>
+      <% product = Product.find_by(id: bid.product_id) %>
+        <li><%= " #{product.title}(#{product.id}):  #{bid.amount}$" %> </li>
+        <%end%>
+    </ul>
+
+    <p>Bids won</p>
+
+    <ul>
+      <% @products_really_won.each do |id|%>
+      <% product = Product.find_by(id: id) %>
+      <% if DateTime.now <product.deadline %>
+      <li><%= "#{product.title}(#{product.id})"%></li>
+      <%end%>
+      <%end%>
+    </ul>
+
+
+
+
+
+  </body>
+</html>
